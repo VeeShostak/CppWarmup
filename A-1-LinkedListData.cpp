@@ -17,7 +17,7 @@ struct Node {
 	Node* next; // points to next node, or points to NULL if on last node of the list
 };
 
-// function definitions
+// function prototypes
 void printCountry(Node* &world, string name);
 void update(Node* &world, Country c);
 void merge(Node* &world, string ctry1, string ctry2, string newctry);
