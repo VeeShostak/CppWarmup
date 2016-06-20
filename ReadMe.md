@@ -8,6 +8,8 @@ This is a repository containing my solutions to short C++ programs designed to g
 
 [2) A-2-ArrayData](#A-2)
 
+[3) A-3-ImageManipulation](#A-3)
+
 ## Program Descriptions:
 
 *A-(assignment#)-(fileName)*
@@ -156,3 +158,97 @@ Task 3:
 Now you have to look at countries that are candidates to become one of the 3 biggest countries in the future. To do this, you want to pick countries that are currently at least 20% as large as the 3rd largest country, and have a larger growth rate than the 3rd largest country (obviously, this criteria uses a very long term definition of "future").
 
 Print a list of all such countries, one per line, in order of occurrence in the file.
+
+
+---
+
+
+<a name="A-3"></a>
+### A-3-ImageManipulation.cpp
+
+You will do basic manipulations of gray-scale images. The data structure for an image is a 2-D array, so you will be writing functions that manipulate 2-D arrays.
+
+*TASKS*
+
+For all tasks:
+
+You are provided a sample gray-scale image to work on, *A-3-inImage.pgm*
+
+There are many image formats (jpg, png, etc.), and we will use PGM (Portable GrayMap) since it is a simple grayscale format.
+
+You may need to use the following linux programs while developing your programs.
+
+1. Viewing a PGM image: eom and gimp are standard Linux program for viewing images in various formats (eog is another, but its not installed in Lab G).
+2. Converting between image formats: The Linux utility convert will convert between all standard formats, where its 2 arguments are the input and output files, with format determined by filename suffix. You won't need this unless you want to play with other image formats.
+
+We need a way to convert gray-scale images to arrays, and output arrays into image files. You are provided with two functions as follows:
+1. writeImage: writes the argument image (a 2-D array) to outImage.pgm in PGM grayscale format.
+
+2. readImage: reads a PGM grayscale format from inImage.pgm into an array, and updates the height/width arguments appropriately (since they are passed by reference).
+
+Place them in your code and use these functions as is.
+
+Task 0:
+
+You are provided a sample gray-scale image to work on. Save the image supplied with the assignment to $PWD (your projects working directory). This file format has 8-bit images - i.e., each pixel is a gray scale value between 0 and 255 inclusive.
+
+Write a small program that uses the given readimage/writeimage functions to input the PPM file into an array, copies the image to a 2nd array, and writes the 2nd array back. View the resulting image to make sure its the same as the original image.
+
+Task 1:
+
+One way to highlight objects in an image is to make all pixels below a threshold (T1) 0, and all pixels above a threshold (T2) 255. Write a function to highlight the image, using the following prototype:
+
+````void highlight(int image[][MAXHEIGHT],int width, int height, int t1, int t2)````
+
+Write a main program that inputs t1 and t2 from the user, highlights the image, and then writes the image.
+
+This highlighting is called segmentation, though most segmentation algorithms are much more complicated.
+
+Task 2:
+
+Write a function that quantizes the image to q grayscale shades. For example, if q=8, replace each pixel between 0-31 by  0, 32-63 by 32, ..., and 224-255 by 224. Use the same order of arguments as in task 1 (using q instead of t1/t2), and name your function quantize. As before, write a main driver program, except inputting q this time.
+
+Caution: You will need to handle the special case where q is not a factor of 256. You can do any reasonable set of intervals for this case (though all intervals won't have the same size, obviously).
+
+For this task use the following prototype:
+````void quantize(int image[][MAXHEIGHT],int width, int height, int q)````
+
+Task 3:
+
+One way to pixelate an image is to effectively make every nXn non-overlapping window contain the same value (the obvious value is the average of the window). For example, if n=2, the following image:
+
+    10 20 30 40
+    11 21 31 41
+    12 22 32 42
+    13 23 33 43
+
+may be transformed to:
+
+    16 16 36 36
+    16 16 36 36
+    18 18 37 37
+    18 18 37 37
+
+where the 16 was computed by averaging 10, 20, 11, and 21 (after rounding), and so on.
+
+Repeat the earlier tasks, except with a function named pixelate which is defined as follows:
+
+````void pixelate(int image[][MAXHEIGHT], int width, int height, int n)````
+
+Task 4:
+
+A sliding window operator replaces each pixel with some function of its 8 neighbors (and itself). Consider the following 3X3 window:
+
+    a b c
+    d e f
+    g h i
+
+Then, pixel e would be replaced by some function f(a,b,c,d,e,f,g,h,i). One way to detect edges is to use the function 5e-(b+d+f+h). Note that this is a sliding window operator unlike the non-overlapping windows in the previous task - that is, the window is always a window around the pixel whose value is being computed.
+
+Write an edge detector function, named edgeDet. For pixels at the left/right/top/bottom edges of the image, consider their neighbors to be 'wrapped around' to the other end. For example row 0 would be considered to be the row after the last row of the image. Use the following prototype:
+
+````void edgeDet(int image[][MAXHEIGHT], int width, int height)````
+
+Task 5:
+
+Write a main program that plays with the parameters to the above functions to produce an image that seems to look interesting (yes, this is very subjective). For example,  main might first quantize the image, then highlight it, and then do edge detection.
