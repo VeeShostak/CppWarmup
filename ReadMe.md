@@ -10,6 +10,8 @@ This is a repository containing my solutions to short C++ programs designed to g
 
 [3) A-3-ImageManipulation](#A-3)
 
+[4) A-4-SentenceStrVec](#A-4)
+
 ## Program Descriptions:
 
 *A-(assignment#)-(fileName)*
@@ -252,3 +254,47 @@ Write an edge detector function, named edgeDet. For pixels at the left/right/top
 Task 5:
 
 Write a main program that plays with the parameters to the above functions to produce an image that seems to look interesting (yes, this is very subjective). For example,  main might first quantize the image, then highlight it, and then do edge detection.
+
+
+---
+
+
+<a name="A-4"></a>
+### A-4-SentenceStrVec.cpp
+
+
+You will write a program that implements all the fundamental constructs you should know; strings, vectors, functions, and the basics. You are required to use vectors for any indeterminate-sized data other than strings.
+
+*TASKS*
+
+You will do various analysis tasks on a sentence input by keyboard. Your final program should be one cpp file with each task operating on the result of the previous task, suitably modular with functions to handle individual concerns.
+
+Task 0:
+
+After reading all the tasks, identify suitable preconditions on the input sentence for which your code will work. Write these preconditions as comments. An example precondition might be that the sentence does not start with spaces, but you will need more.
+
+Don't forget that the preconditions (and postconditions) form a contract with your customer, and the program is considered wrong (and you don't get paid) if you dont handle a sentence that isn't explicitly barred by a precondition.
+You may make any reasonable preconditions, but make sure you allow arbitrarily long sentences.
+
+Task 1:
+
+Check if the sentence reads the same forwards as backwards by word, and output a message indicating whether it does or not. For example, "I am what am I." qualifies, but "I am what I am." does not. For the purposes of this lab, words are delimited by one or more spaces (except at the beginning and end of the sentence), and there is exactly one period at the end of every sentence.
+
+Hint: Since all tasks rely on the identification of words, you might first want to split the sentence into words (in a separate function). Think about the best type for a variable that stores a sequence of words - that will be the type of the functions return value.
+
+Task 2:
+
+A common writing error is to duplicate words (e.g., "I ate the the pizza."). Go through the sentence and remove any consecutive duplicated words.
+Note that although duplicate words might sometimes be intended, we are not worried about that case for the purposes of this lab.
+
+Task 3:
+
+Another  writing error is to not capitalize the word "I". Handle this.
+
+Task 4:
+
+Replace every word "instructor" in the sentence, with "Mr. John Doe"
+
+Task 5:
+
+Looking at your preconditions, modify your code to relax as many of them as you can.
