@@ -12,6 +12,8 @@ This is a repository containing my solutions to short C++ programs designed to g
 
 [4) A-4-SentenceStrVec](#A-4)
 
+[5) A-5-IntegerOperators](#A-5)
+
 ## Program Descriptions:
 
 *A-(assignment#)-(fileName)*
@@ -298,3 +300,52 @@ Replace every word "instructor" in the sentence, with "Mr. John Doe"
 Task 5:
 
 Looking at your preconditions, modify your code to relax as many of them as you can.
+
+
+---
+
+
+<a name="A-5"></a>
+### A-5-IntegerOperators.cpp
+
+You will gain experience with integer operators and are NOT allowed to convert numbers into strings and use string processing primitives.
+
+*TASKS*
+
+Task 0:
+
+Write a function to reverse a positive integer. For example, the reverse of 284 would be 482. Use the following prototype:
+
+    // Precondition: num > 0
+    // Postcondition: the return value is num read backwards (in decimal)
+    int reversePos(int num);
+
+To do this, we first need to identify functions that are useful to doing this. In this case, a list of useful function prototypes might be:
+
+1. `````int getDigit(int num, int index);  // return the index'th digit of num`````
+2. `````int numDigits(int num);            // return the number of digits in num`````
+
+You should have at least these functions, though you may have additional functions if you wish. Don't forget to write pre/post conditions for these functions.
+
+Task 1:
+
+You need a driver program to test your above program. To do this, write a main function that prints a table of integers and their reverses for all multiples of n from 1 to 1023 inclusive, where n is input from the user. For example your output may look like below if the user input 57 for n:
+
+    57     75
+    114   411
+    ...
+    969   969
+
+You don't need to align the columns, but can do so (using numDigits) if you have time. You also don't need to worry about getting it exactly correct if num ends in 0's (so its ok to print the reverse of 570 as 75 instead of 075).  
+
+Task 2:
+
+Modify your driver program to go from -1023 to 1023, so the user can input negative numbers. We will define the reverse of a negative number to be the reverse of the magnitude with the same sign as the number. (e.g., the reverse of -284 would be -482).
+
+Now do an in-place reversal by changing the argument. For example:
+
+    // Precondition: n=284
+    // Postcondition: n=482
+    reverseInPlace(n);
+
+Write a reverseInPlace function that implements this. You should be able to reuse most of the code from earlier. Rewrite the driver program to show this output as well.
