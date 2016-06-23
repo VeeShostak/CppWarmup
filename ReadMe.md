@@ -14,6 +14,8 @@ This is a repository containing my solutions to short C++ programs designed to g
 
 [5) A-5-IntegerOperators](#A-5)
 
+[6) A-6-EfficiencyNChooseK](#A-6)
+
 ## Program Descriptions:
 
 *A-(assignment#)-(fileName)*
@@ -349,3 +351,47 @@ Now do an in-place reversal by changing the argument. For example:
     reverseInPlace(n);
 
 Write a reverseInPlace function that implements this. You should be able to reuse most of the code from earlier. Rewrite the driver program to show this output as well.
+
+
+---
+
+
+<a name="A-6"></a>
+### A-6-EfficiencyNChooseK.cpp
+
+Here we deal with bit-size limitations and we look to improve the
+algorithm of n choose k so it could
+take in larger values of n and k without overflowing.
+
+n! (read n factorial) is defined to be (1)(2)(3)(4)...(n-1)(n). Many useful computer science problems require the computation of C(n,k) (read n choose k) which is defined as: n! / (k! * (n-k)!), for n>=0 and 0<=k<=n. You will compute C(n,k) in several ways.
+
+Two useful properties about C(n,k) are:
+1. (P1)  C(n,n-1) = n
+2. (P2)  C(n,k) = C(n,n-k)
+
+Several tasks in this assignment ask you for an explanation. You don't need a detailed explanation (1 sentence each suffices). Write your explanations in comments.
+
+*TASKS*
+
+Task 1:
+
+Implement a program that computes C(n,k) directly by computing the 3 factorials (representing variables as ints). What is the largest value of n for which C(n,n-1) returns a correct result? Explain why the results are incorrect (you don't need to figure out the actual relevant bit patterns). What is the largest value for which it does not result in an overflow exception?
+
+Task 2:
+
+C(n,k) can be rewritten as n(n-1)(n-2)...(n-k+1)/k!. Implement a program that computes C(n,k) based on this formula. This program is obviously better than 1 since it works on more input values, but how does it compare to 1 efficiency-wise? The appropriate measure of efficiency here would be the number of multiplies.
+
+
+Task 3:
+
+Use property (P2) to make your solution to 2 more efficient.
+
+Task 4:
+
+The formula for C(n,k) can be expressed as the product
+
+````(1+(n-k)/1) (1+(n-k)/2) (1+(n-k)/3) ... (1+(n-k)/k)````
+
+Write a program to implement this. You should be able to handle much larger values of n and k now.
+
+Warning: a naive implementation that ignores the type casting needed to convert between ints and intermediate data types will result in incorrect results - you can compare the results from programs 1-3 and this.
