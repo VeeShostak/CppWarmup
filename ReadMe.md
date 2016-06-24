@@ -16,6 +16,8 @@ This is a repository containing my solutions to short C++ programs designed to g
 
 [6) A-6-EfficiencyNChooseK](#A-6)
 
+[7) A-7-CharGraphicalShapes](#A-7)
+
 ## Program Descriptions:
 
 *A-(assignment#)-(fileName)*
@@ -395,3 +397,52 @@ The formula for C(n,k) can be expressed as the product
 Write a program to implement this. You should be able to handle much larger values of n and k now.
 
 Warning: a naive implementation that ignores the type casting needed to convert between ints and intermediate data types will result in incorrect results - you can compare the results from programs 1-3 and this.
+
+
+---
+
+
+<a name="A-7"></a>
+### A-7-CharGraphicalShapes.cpp
+
+We will draw a number of shapes, using "character graphics". For each part of the problem, your program should input all parameters from the keyboard (after prompting the user). Moreover, the program should ensure that inputs are legal.
+
+*TASKS*
+
+Task 1:
+
+Draw a w-wide h-high rectangular frame, using asterisks. Ex (w=5, h=4):
+
+    *****
+    *   *
+    *   *
+    *****
+
+Task 2:
+
+Draw an X where each stroke has len asterisks. Ex (len=5):  
+
+    *   *
+     * *
+      *
+     * *
+    *   *
+
+Task 3:
+
+Draw the lower triangular part of a square, given the side length. Ex (side=5):
+
+    *   
+    **
+    ***
+    ****
+    *****
+
+Task 4:
+
+Similar to 3, but draw the upper triangular part of the square (i.e., the other half of the square).
+
+Task 5:
+
+Given a radius, draw a circle with that radius.
+Hint: Recall that a circle of radius r is defined as the set of points (x,y) where x2+y2<r2.
