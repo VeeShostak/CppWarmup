@@ -18,6 +18,8 @@ This is a repository containing my solutions to short C++ programs designed to g
 
 [7) A-7-CharGraphicalShapes](#A-7)
 
+[8) A-8-VerhulstPopModel](#A-8)
+
 ## Program Descriptions:
 
 *A-(assignment#)-(fileName)*
@@ -446,3 +448,42 @@ Task 5:
 
 Given a radius, draw a circle with that radius.
 Hint: Recall that a circle of radius r is defined as the set of points (x,y) where x2+y2<r2.
+
+
+---
+
+
+<a name="A-8"></a>
+### A-8-VerhulstPopModel.cpp
+
+We will be implementing the Verhulst formula, inputting all parameters from the user using cin, and outputting a table of years and populations for years 1 to k using cout (k is another input parameter).
+
+[Verhulst formula](http://www.resnet.wm.edu/~jxshix/math410/Verhulst.html "Verhulst formula")
+
+*TASKS*
+
+Task 0:
+
+Your output table format should look something like this (modulo whitespace):
+
+    1    57
+    2    74
+    3    82
+    ...
+    22  114
+
+To approach the problem:
+
+1.  Identify inputs and outputs of the problem (including datatypes)
+2.  Understand the problem well. Read the linked page again, concentrating on the problem you will be solving (in this case, the Verhulst formula given in the middle of the page.
+3.  Write pseudocode for the problem, as C/C++ comments.
+4.  Flesh out the pseudocode with real code.
+5.  Run, test, debug, repeat until complete!
+
+You should implement the pseudocode using the appropriate C iteration constructs (for those who know about recursion, please don't use that). In addition, your code should have appropriate error checking to ensure that all parameters are legal.
+
+You can test your code on the 3 parameter sets given at the bottom of the linked page. In addition, you should also test that your program does appropriate error checking for inputs.
+
+Task 1:
+
+You wish to identify critical values of g leading to oscillating and chaotic behavior. Using the values in the linked page, play with different values of g to see when it starts oscillating. Repeat for chaotic behavior. Write your answers in comments.
