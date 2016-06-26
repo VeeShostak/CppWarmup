@@ -20,6 +20,8 @@ This is a repository containing my solutions to short C++ programs designed to g
 
 [8) A-8-VerhulstPopModel](#A-8)
 
+[9) A-9-SunsetTime](#A-9)
+
 ## Program Descriptions:
 
 *A-(assignment#)-(fileName)*
@@ -487,3 +489,34 @@ You can test your code on the 3 parameter sets given at the bottom of the linked
 Task 1:
 
 You wish to identify critical values of g leading to oscillating and chaotic behavior. Using the values in the linked page, play with different values of g to see when it starts oscillating. Repeat for chaotic behavior. Write your answers in comments.
+
+
+---
+
+
+<a name="A-9"></a>
+### A-9-SunsetTime.cpp
+
+*TASKS*
+
+Task 0:
+
+Write a program that outputs "Good morning (name).", "Good afternoon (name).", or "Good evening (name)." depending on whether the current time is midnight-noon, noon-sunset, or sunset-midnight respectively.  
+
+Your program should first prompt the user for the sunset time with the following prompts:
+
+    Enter the hours part of today's sunset time (1-12):
+    Enter the minutes part of today's sunset time (0-59):
+
+Make sure that your program does error checking and re-prompts the user if needed.
+You will also need to retrieve the current time (24 hour format). A standard platform-independent way to do this is through the ctime library.
+
+In your program, you should also state the test cases you tried, and why you picked those. Write these in brief comments.
+
+Task 1:
+
+Modify the above program as follows:
+
+1. Output a sentence saying "It will be dark in <num> hours and <num> minutes.". Your program should handle all current times. So, if its after sunset, you should print the time until the following day's sunset.
+
+2. Add a prompt asking "How many minutes from now do you expect to be home?", and output a sentence saying "When you get home, it will be {dark,light}". You may assume that the following sunrise has not yet happened.
