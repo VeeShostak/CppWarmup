@@ -22,6 +22,8 @@ This is a repository containing my solutions to short C++ programs designed to g
 
 [9) A-9-SunsetTime](#A-9)
 
+[10) A-10-RecursionPalindrome](#A-10)
+
 ## Program Descriptions:
 
 *A-(assignment#)-(fileName)*
@@ -520,3 +522,40 @@ Modify the above program as follows:
 1. Output a sentence saying "It will be dark in <num> hours and <num> minutes.". Your program should handle all current times. So, if its after sunset, you should print the time until the following day's sunset.
 
 2. Add a prompt asking "How many minutes from now do you expect to be home?", and output a sentence saying "When you get home, it will be {dark,light}". You may assume that the following sunrise has not yet happened.
+
+
+---
+
+
+<a name="A-10"></a>
+### A-10-RecursionPalindrome.cpp
+
+You will get some practice writing recursive functions and understanding recurrence relations.
+
+Note: For C++, there is inefficiency in constructing substrings and also some overhead in recursive calls. However, some languages (especially those that fall under the functional paradigm) are optimized for such manipulations. Also, there are some applications for which recursion is the simplest solution.
+
+*TASKS*
+
+A palindrome is a string that reads the same forwards and backwards, ignoring spaces and punctuation. For example, "a man, a plan, a canal, panama" is a well known palindrome.
+
+It is simple to recursively express whether a string, x, is a palindrome or not. If x has even length, x is a palindrome if the following conditions hold:
+
+1.	x's first and last character are the same
+2.	the remaining characters of x are a palindrome.
+
+Formally, the above can be expressed as the following recurrence relation where x has length n:
+
+````palindrome(x) = (x[0]==x[n-1]) AND palindrome(x[1..n-2])````
+
+Task 0:
+
+Write a program that inputs a string from the user and prints a message indicating whether the string is a palindrome or not. The program should do the following:
+
+First, make your program also handle odd length strings. You will need to generalize the previous recurrence relation.
+
+1.	Input a string from the user
+2.	Filter out spaces and punctuation.
+3.	Call a recursive function to check whether the string is a palindrome. You will need to use a string library function to get a substring for the recursive call (look up substrings).
+4.	Print an appropriate message to the user
+
+Note: The above is not a particularly good solution in C++, due to its inefficiency in constructing substrings and also some overhead in recursive calls. However, some languages (especially those that fall under the functional paradigm) are optimized for such manipulations. Also, there are some applications for which recursion is the simplest solution.
